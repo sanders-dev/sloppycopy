@@ -1,0 +1,18 @@
+@echo off
+set /p id=Please enter user id: 
+set /p oldname=Please enter the old computer or ip address:
+
+robocopy \\%oldname%\c$\Users\%id%\Desktop C:\Users\%id%\Desktop /e /z /MT:64
+robocopy \\%oldname%\c$\Users\%id%\Favorites C:\Users\%id%\Favorites /e /z /MT:64
+robocopy "\\%oldname%\c$\Users\%id%\My Documents" C:\Users\%id%\Documents /e /z /MT:64
+robocopy "\\%oldname%\c$\Users\%id%\Appdata\Roaming\Microsoft\Sticky notes" "C:\Users\%id%\Appdata\Roaming\Microsoft\Sticky notes" /e /z /MT:64
+md C:\QuickLinks
+robocopy \\%oldname%\c$\Users\%id%\Links C:\QuickLinks\ /e /z /MT:64
+robocopy \\%oldname%\c$\Users\%id%\Appdata\Roaming\Avaya C:\Users\%id%\Appdata\Roaming\Avaya /e /z /MT:64
+robocopy \\%oldname%\c$\Users\%id%\Appdata\Roaming\onenote C:\Users\%id%\Appdata\Roaming\onenote /e /z /MT:64
+robocopy "\\%oldname%\c$\Users\%id%\Appdata\Roaming\realpresence desktop" "C:\Users\%id%\Appdata\Roaming\realpresence desktop" /e /z /MT:64
+robocopy "\\%oldname%\C$\Users\%id%\AppData\Local\Google\Chrome\User Data\Default" "C:\Users\%id%\AppData\Local\Google\Chrome\User Data\Default"
+robocopy \\%oldname%\c$\Users\%id%\appdata\local\microsoft\outlook c:\user\%id%\appdata\local\microsoft\outlook  /e /z /MT:64
+robocopy \\%oldname%\c$\Users\%id%\appdata\roaming\microsoft\outlook c:\user\%id%\appdata\roaming\microsoft\outlook /e /z /MT:64
+robocopy \\%oldname%\c$\Users\%id%\appdata\roaming\microsoft\signatures c:\user\%id%\appdata\roaming\microsoft\signatures /e /z /MT:64
+robocopy "\\%oldname%\c$\printers.reg" c:\Users\%id%\Desktop /e /z /MT:64
